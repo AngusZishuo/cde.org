@@ -85,7 +85,7 @@ class Run(PySelenium):
 
 
 if __name__ == '__main__':
-    url = 'https://www.cde.org.cn/main/xxgk/listpage/9f9c74c73e0f8f56a8bfbc646055026d'
+    url = 'https://d3d3LmNkZS5vcmcuY24=/main/xxgk/listpage/9f9c74c73e0f8f56a8bfbc646055026d'
     browser = webdriver.Firefox()
     browser.implicitly_wait(20)
     start = Run(browser)

@@ -75,7 +75,7 @@ class Run(PySelenium):
             time.sleep(1)
 
 
-url = 'https://www.cde.org.cn/main/xxgk/listpage/b40868b5e21c038a6aa8b4319d21b07d'
+url = 'https://d3d3LmNkZS5vcmcuY24=/main/xxgk/listpage/b40868b5e21c038a6aa8b4319d21b07d'
 
 driver = webdriver.Firefox()
 driver.switch_to.frame("x-URS-iframe")
