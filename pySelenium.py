@@ -1,9 +1,30 @@
+import csv
 from selenium.webdriver.common.by import By
-
+import selenium.webdriver.support.ui as ui
+from selenium.common.exceptions import TimeoutException
+import selenium.webdriver.support.expected_conditions as EC
+import pandas as pd
 
 class PySelenium:
     def __init__(self, driver):
         self.driver = driver
+
+    # 一直等待某个元素消失，默认超时10秒
+    def is_not_visible(self, locator, timeout=10):
+        try:
+            ui.WebDriverWait(self.driver, timeout).until_not(EC.visibility_of_element_located((By.XPATH, locator)))
+            return True
+        except TimeoutException:
+            return False
+
+    def csv_deduplication(self,filename):
+        '''
+        Args: csv文件去重
+            file: 文件名称
+        '''
+        df = pd.read_csv(filename, header=0, encoding='utf-8')
+        datalist = df.drop_duplicates()
+        datalist.to_csv(filename, encoding='utf-8', header=None, index=None)
 
     # 元素定位
     def locator(self, locator):
@@ -38,7 +59,7 @@ class PySelenium:
         return self.driver.current_url()
 
     # 关闭当前页签
-    def close(self):
+    def close_this_page(self):
         return self.driver.close()
 
     # 切换到当前窗口

@@ -30,8 +30,8 @@ return: 返回为当前数据的字符串类型
 def json_dumps(data):
     return json.dumps(data)
 
-def write_csv(file_path,data_list_name):
+def write_csv(file_path,data_list):
     with open(file_path, 'a', newline='', encoding='utf-8') as csvfile:
         writer = csv.writer(csvfile)
-        for row in data_list_name:
+        for row in data_list:
             writer.writerow(row)
